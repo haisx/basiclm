@@ -13,6 +13,24 @@
 #   Check Package:             'Ctrl + Shift + E'
 #   Test Package:              'Ctrl + Shift + T'
 
+
+#'linear_model
+#'
+#'Gets the square of a number
+#'
+#'@param formula regression formula of interests
+#'@param data data used for regression model
+#'@param digit digits of output numbers (except p-value)
+#'@param detailed whether output a detailed table
+#'
+#'
+#'@return the square of x
+#'
+#'@examples
+#'square(3)
+#'
+#'@export
+#'
 linear_model <- function(formula, data, digit = 3, detailed = FALSE)
 {
   if(digit < 1)
