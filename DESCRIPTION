@@ -1,11 +1,12 @@
 Package: basiclm
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Linear_model
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Haisheng Xu
+Maintainer: Haisheng Xu <haisheng@umich.edu>
+Description: This package is to achieve some basic functions of lm().
+    The function in the package calculates basic statistics we may need 
+    when we conduct linear regression.
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
