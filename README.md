@@ -37,7 +37,7 @@ set.seed(222)
 x = runif(500000, 1, 10000)
 y = runif(500000, 1, 10000)
 linear_model(y~x, detailed = TRUE)
-linear_model(y~x + I(x^2), digit = 3, detailed = FALSE)
+linear_model(y~x + log(x), digit = 3, detailed = FALSE)
 ```
 
 `linear_model(iris$Petal.Length~iris$Sepal.Width)`
