@@ -39,8 +39,8 @@
 #'}
 #'
 #'@examples
-#'x = 1:100
-#'y = 100:1
+#'x = c(1,2,5,7,1,4)
+#'y = c(3,4,7,1,8,8)
 #'linear_model(y~x, detailed = TRUE)
 #'linear_model(y~x + x^2, digit = 3, detailed = FALSE)
 #'linear_model(Petal.Length~Sepal.Width, data = iris, digit = 3, detailed = TRUE)
