@@ -18,7 +18,7 @@ The `linear_model()` with `detailed = TRUE` can return a list of important stati
 # If not have devtools installed, it is recommended
 install.packages('devtools')
 
-devtools::install_github("haisx/basiclm")
+devtools::install_github("haisx/basiclm", build_vignettes = T)
 library("basiclm")
 ```
 There is only one function `linear_model()` in `basiclm` package.
@@ -27,7 +27,7 @@ There is only one function `linear_model()` in `basiclm` package.
 The `basiclm` package contains `linear_model()` which achieves the basic functionality of `lm()`. The function need to take the argument `formula` and optional argument `data`, `digit`, and `detailed`. Without using `detailed = TRUE`, the function will return the function call and coefficients just like what `lm()` does. If we use a `detailed = TRUE`, we will get a list of numeric key values returned, which are the same values we can see in `summary(lm())` and `confint()`.
 
 ## Tests
-The `linear_model` function is tested compared with `lm()` function so that we can prove that it output correct and stable results when handle the numeric data. Each output statistics are tested in the tests. You can find them at testthat directory under tests directory. The tests mainly use `iris` data as sample data and random generated data as other sample data to prove the correctness of the functionality.
+The `linear_model()` function is tested compared with `lm()` function so that we can prove that it output correct and stable results when handle the numeric data. Each output statistics are tested in the tests. You can find them at testthat directory under tests directory. The tests mainly use `iris` data as sample data and random generated data by `runif()` as other simulated data to prove the correctness of the functionality. In the Vignette, we also compared the performance and efficiency of `linear_model()` function with `lm()` function.
 
 
 ## Examples
@@ -52,7 +52,4 @@ To access the values, we can use `$` directly like following,
 
 `linear_model(Petal.Length~Sepal.Width, data=iris, detailed = T)$P`
 
-More specific results can be viewed at `browseVignettes("basiclm")`
-(note: to use `browseVignettes`, you need to make sure you have `build_vignettes` installed.)
-
-`devtools::install(build_vignettes = T)`, `devtools::install_github("haisx/basiclm", build_vignettes = T)`
+More specific examples can be viewed at `browseVignettes("basiclm")`

@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 # Load the package
 library(basiclm)
 ```
-There is one `linear_model` function in the package. It presents some important statistics of linear regression model. 
+There is one `linear_model()` function in the package. It presents some important statistics of linear regression model. 
 The input variables should all be **numeric variables**.
 
 ## The Parameters of Function `linear_model`
@@ -69,7 +69,7 @@ linear_model(Petal.Length~Sepal.Width ,data=iris, detailed = TRUE)
 
 ```
 
-## Performance of `linear_model` vs. `lm()`
+## Performance of `linear_model()` vs. `lm()`
 ```{r n}
 set.seed(222)
 testx = runif(5000000, 1, 10000)
@@ -77,4 +77,13 @@ testy = runif(5000000, 1, 10000)
 
 system.time(lm(testy~testx))
 system.time(linear_model(testy~testx))
+
+
+set.seed(223)
+testx = runif(5000000, 1, 10000)
+testy = runif(5000000, 1, 10000)
+testz = runif(5000000, 1, 10000)
+
+system.time(lm(testz~testx + testy + testy^2))
+system.time(linear_model(testz~testx + testy + testy^2))
 ```
