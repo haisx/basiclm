@@ -49,7 +49,10 @@ linear_model function is used to fit linear models.
 It can be seen as a basic version of lm() function.
 }
 \examples{
-linear_model(formula, data)
-linear_model(formula, data, digit = 3, detailed = FALSE)
+x = 1:100
+y = 100:1
+linear_model(y~x, detailed = TRUE)
+linear_model(y~x + x^2, digit = 3, detailed = FALSE)
+linear_model(Petal.Length~Sepal.Width, data = iris, digit = 3, detailed = TRUE)
 
 }
