@@ -26,7 +26,7 @@ There is only one function `linear_model()` in `basiclm` package.
 ## Features
 The `basiclm` package contains `linear_regression()` which achieves the basic functionality of `lm()`. The function need to take the argument `formula` and optional argument `data`, `digit`, and `detailed`. Without using `detailed = TRUE`, the function will return the function call and coefficients just like what `lm()` does. If we use a `detailed = TRUE`, we will get a list of numeric key values returned, which are the same values we can see in `summary(lm())` and `confint()`.
 
-## Example
+## Examples
 
 `linear_model(iris$Petal.Length~iris$Sepal.Width)`
 
