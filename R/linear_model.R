@@ -134,8 +134,8 @@ linear_model <- function(formula, data, digit = 3, detailed = FALSE)
   colnames(betasd) = "Std. Error"
 
   detail_list = cbind(t(betas),betasd,
-                      c(t(betas)-qt(0.025, degreef,lower.tail=FALSE)*betasd),
-                      c(t(betas)+qt(0.025, degreef,lower.tail=FALSE)*betasd))
+                      c(t(betas)-stats::qt(0.025, degreef,lower.tail=FALSE)*betasd),
+                      c(t(betas)+stats::qt(0.025, degreef,lower.tail=FALSE)*betasd))
 
   t_value = detail_list[,1]/detail_list[,2]
   detail_list = cbind(detail_list, t_value)
