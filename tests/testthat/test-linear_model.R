@@ -37,6 +37,8 @@ test_that("multiplication works", {
   expect_equal(mylm2$Coefficients[3],
                round(as.numeric(standardlm2[1]$coefficients[3]),4))
 
+
+  ## Try more complex situation (with squared terms) and more precise results
   # Test the detailed table statistics
   # (2 independent variable in addition with 1 squared term)
   # Used 8 digits here
@@ -79,11 +81,27 @@ test_that("multiplication works", {
   expect_equal(mylm3$F_stat,
                round(as.numeric(summary(standardlm3)[10]$f[1]),8))
 
-  # P value
-
+  # P value of model
+  expect_equal(mylm3$P_value, anova(standardlm2)$'Pr(>F)'[1])
 
   # Test warning
-  # Test exit
+  expect_warning(linear_model(Petal.Length~Sepal.Width,
+                              data=iris, digit = 0))
 
-  # Test another linear models using other datasets
+  # Test error returned (If we add any non-numeric terms)
+  expect_error(linear_model(Petal.Length~Sepal.Width + Species,
+                              data=iris))
+
+  # Test another linear models using other larger datasets
+  set.seed(222)
+  testx = runif(500000, 1, 10000)
+  testy = runif(500000, 1, 10000)
+
+  # Test the coefficient beta0
+  expect_equal(linear_model(testy~testx)$Coefficients[1],
+               round(as.numeric(lm(testy~testx)[1]$coefficients[1]),3))
+
+  # Test the coefficient beta1
+  expect_equal(linear_model(testy~testx)$Coefficients[2],
+               round(as.numeric(lm(testy~testx)[1]$coefficients[2]),3))
 })
