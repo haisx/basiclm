@@ -1,5 +1,7 @@
 ---
-title: "tutorial"
+title: "`basiclm` Package Tutorial"
+author: Haisheng Xu
+date: "Dec. 1, 2021"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{tutorial}
@@ -15,5 +17,64 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
+# Install package from GitHub
+# devtools::install_github("haisx/basiclm")
+
+# Load the package
 library(basiclm)
+```
+There is one `linear_model` function in the package. It presents some important statistics of linear regression model. 
+The input variables should all be **numeric variables**.
+
+## The Parameters of Function `linear_model`
+`formula`: The formula of interests. It should follow the format of y~x. You can add more than one explanatory variables with different form like y~x+z+z^2.
+**e.g.**. linear_model(y~x)
+
+`data`: The name of the data needed to conduct the linear regression model. 
+**e.g.** linear_model(y~x, data = mydata)
+
+`digit`: The digits you want to keep in the output. The p-value would not be affected by `digit`. The default `digit` option is `digit` = 3.
+**e.g.** linear_model(y~x, data = mydata, digit = 8)
+
+`detailed`: The `detailed` means a detailed output of the linear regression model. The detailed table includes more information about coefficients and model like Std Error, t value of the coefficients, R-Squared of the model, and so on. The default `detail` = FALSE. 
+**e.g.** linear_model(y~x, data = mydata, digit = 8, detailed = TRUE)
+
+
+## The Use of Function `linear_model`
+We can create our own response and explanatory variables and put them into the function.
+```{r 0}
+y = c(1:10)
+x = c(2:5, 11:6)
+
+linear_model(y~x)
+
+```
+we can get what we called in function and the coefficients of the linear regression model directly.
+
+## Use `linear_model` with Dataset
+Here we use `iris` data as a simple example.
+```{r 1}
+head(iris)
+
+# We will use the numeric variables in iris dataset
+linear_model(Petal.Length~Sepal.Width ,data = iris)
+
+# Keep more digits of results
+linear_model(Petal.Length~Sepal.Width ,data = iris, digit = 8)
+```
+
+## Get Specific Output by Using `detailed` Option
+```{r 2}
+linear_model(Petal.Length~Sepal.Width ,data=iris, detailed = TRUE)
+
+```
+
+## Performance of `linear_model` vs. `lm()`
+```{r n}
+set.seed(222)
+testx = runif(5000000, 1, 10000)
+testy = runif(5000000, 1, 10000)
+
+system.time(lm(testy~testx))
+system.time(linear_model(testy~testx))
 ```
