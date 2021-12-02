@@ -33,3 +33,12 @@ The `basiclm` package contains `linear_regression()` which achieves the basic fu
 `linear_model(Petal.Length~Sepal.Width, data=iris, detailed = T)`
 
 `linear_model(Petal.Length~Sepal.Width, data=iris, digit = 8, detailed = F)`
+
+To access the values, we can use `$` directly like following,
+`linear_model(Petal.Length~Sepal.Width, data=iris, detailed = T)$Rsq`
+`linear_model(Petal.Length~Sepal.Width, data=iris, detailed = T)$P`
+
+More specific results can be viewed at `browseVignettes("basiclm")`
+(note: to use `browseVignettes`, you need to make sure you have `build_vignettes` installed.)
+
+`devtools::install(build_vignettes = T)`, `devtools::install_github("haisx/basiclm", build_vignettes = T)`
