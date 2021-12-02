@@ -40,7 +40,7 @@ The input variables should all be **numeric variables**.
 **e.g.** linear_model(y~x, data = mydata, digit = 8, detailed = TRUE)
 
 
-## The Use of Function `linear_model`
+## Use `linear_model()` with Vectors
 We can create our own response and explanatory variables and put them into the function.
 ```{r 0}
 y = c(1:10)
@@ -51,7 +51,7 @@ linear_model(y~x)
 ```
 we can get what we called in function and the coefficients of the linear regression model directly.
 
-## Use `linear_model` with Dataset
+## Use `linear_model()` with Dataset
 Here we use `iris` data as a simple example.
 ```{r 1}
 head(iris)
@@ -101,5 +101,6 @@ testx = c(1:1000)
 testy = runif(1000, 1, 10000)
 
 linear_model(testy~testx, digit = 5, detailed = T)
+
 summary(lm(testy~testx))
 ```
