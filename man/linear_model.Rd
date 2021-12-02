@@ -16,12 +16,13 @@ linear_model(formula, data, digit = 3, detailed = FALSE)
 \item{detailed}{whether output a detailed table}
 }
 \value{
-the square of x
+the fitted model information
 }
 \description{
-Gets the square of a number
+linear_model function is used to fit linear models.
+It can be seen as a basic version of `lm` function.
 }
 \examples{
-square(3)
+linear_model(formula, data, digit = 3, detailed = FALSE)
 
 }

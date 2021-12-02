@@ -1,8 +1,8 @@
 #'linear_model
 #'
 #'@description
-#'`linear_model` is used to fit linear models.
-#'It is a very basic version of `lm` function.
+#'linear_model function is used to fit linear models.
+#'It can be seen as a basic version of `lm` function.
 #'
 #'@param formula regression formula of interests
 #'@param data data used for regression model
