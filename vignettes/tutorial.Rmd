@@ -100,6 +100,6 @@ set.seed(2212)
 testx = c(1:1000)
 testy = runif(1000, 1, 10000)
 
-linear_model(testy~testx, digit = 5)
-lm(testy~testx)
+linear_model(testy~testx, digit = 5, detailed = T)
+summary(lm(testy~testx))
 ```
