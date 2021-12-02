@@ -8,12 +8,12 @@
 
 
 
-# Motivation
-## Biostat 625 HW4
+## Motivation
+### Biostat 625 HW4
 The goal of making this package is to get familiar with R package, and at the same time, trying to simplify the process of accessing the numeric key statistics in `lm()`. 
 The `linear_model()` with `detailed = TRUE` can return a list of important statistics directly. In that way, we does not need to use `summary()` on `lm()` to show the results and then use complex indies to access the numeric values.
 
-# Installation
+## Installation
 ```
 # If not have devtools installed, it is recommended
 install.packages('devtools')
@@ -23,10 +23,11 @@ library("basiclm")
 ```
 There is only one function `linear_model()` in `basiclm` package.
 
-# Features
+## Features
 The `basiclm` package contains `linear_regression()` which achieves the basic functionality of `lm()`. The function need to take the argument `formula` and optional argument `data`, `digit`, and `detailed`. Without using `detailed = TRUE`, the function will return the function call and coefficients just like what `lm()` does. If we use a `detailed = TRUE`, we will get a list of numeric key values returned, which are the same values we can see in `summary(lm())` and `confint()`.
 
-# Example
+## Example
+
 `linear_model(iris$Petal.Length~iris$Sepal.Width)`
 
 `linear_model(Petal.Length~Sepal.Width, data=iris, detailed = T)`
