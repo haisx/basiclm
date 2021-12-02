@@ -1,18 +1,45 @@
-#'linear_model
+#'Linear Models
 #'
 #'@description
 #'linear_model function is used to fit linear models.
-#'It can be seen as a basic version of `lm` function.
+#'It can be seen as a basic version of lm() function.
 #'
-#'@param formula regression formula of interests
-#'@param data data used for regression model
-#'@param digit digits of output numbers (except p-value)
-#'@param detailed whether output a detailed table
+#'@param formula regression formula of interests; an object of class "formula"
+#'(or one that can be coerced to that class).
+#'@param data data used for regression model; an optional data frame, list or
+#'environment (or object coercible by as.data.frame to a data frame)
+#'containing the variables in the model.
+#'@param digit digit precision of output (except p-value); an
+#'optional int value. The default value in this function is 3.
+#'@param detailed whether the function output a detailed table; a optional boolean
+#'that indicates whether output the relevant detailed table. The default
+#'value of "detailed" is FALSE.
 #'
 #'
-#'@return the fitted model information
+#'@return linear_model() will return the fitted model's information
+#'
+#'It returns a list containing at least the following
+#'components:
+#'\describe{
+#'  \item{call}{the matched call.}
+#'  \item{coefficients}{a named vector of coefficients.}
+#'}
+#'
+#'
+#'If the option "detailed = TRUE", it would also return:
+#'
+#'\describe{
+#'  \item{Significant_table}{the table showing the whether the
+#'coefficients are significant.}
+#'  \item{Df}{the degree of freedom of the model.}
+#'  \item{Rsq}{the R squared.}
+#'  \item{Adjusted_Rsq}{the adjusted R squared.}
+#'  \item{F_statistics}{the F statistic of the model.}
+#'  \item{P_value}{the P value of the model.}
+#'}
 #'
 #'@examples
+#'linear_model(formula, data)
 #'linear_model(formula, data, digit = 3, detailed = FALSE)
 #'
 #'@export
