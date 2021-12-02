@@ -1,22 +1,8 @@
-# Hello, world!
-#
-# This is an example function named 'hello'
-# which prints 'Hello, world!'.
-#
-# You can learn more about package authoring with RStudio at:
-#
-#   http://r-pkgs.had.co.nz/
-#
-# Some useful keyboard shortcuts for package authoring:
-#
-#   Install Package:           'Ctrl + Shift + B'
-#   Check Package:             'Ctrl + Shift + E'
-#   Test Package:              'Ctrl + Shift + T'
-
-
 #'linear_model
 #'
-#'Gets the square of a number
+#'@description
+#'`linear_model` is used to fit linear models.
+#'It is a very basic version of `lm` function.
 #'
 #'@param formula regression formula of interests
 #'@param data data used for regression model
@@ -24,10 +10,10 @@
 #'@param detailed whether output a detailed table
 #'
 #'
-#'@return the square of x
+#'@return the fitted model information
 #'
 #'@examples
-#'square(3)
+#'linear_model(formula, data, digit = 3, detailed = FALSE)
 #'
 #'@export
 #'
