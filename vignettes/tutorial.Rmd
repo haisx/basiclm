@@ -87,3 +87,19 @@ testz = runif(5000000, 1, 10000)
 system.time(lm(testz~testx + testy + testy^2))
 system.time(linear_model(testz~testx + testy + testy^2))
 ```
+
+## Output Comparisons `linear_model()` vs. `lm()`
+```{r n2}
+#iris sample data
+linear_model(Petal.Length~Sepal.Width, data=iris, digit = 8, detailed = T)
+
+summary(lm(Petal.Length~Sepal.Width, data=iris))
+
+# Other random generated data
+set.seed(2212)
+testx = c(1:1000)
+testy = runif(1000, 1, 10000)
+
+linear_model(testy~testx, digit = 5)
+lm(testy~testx)
+```
