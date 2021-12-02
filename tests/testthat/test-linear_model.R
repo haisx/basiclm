@@ -42,10 +42,10 @@ test_that("multiplication works", {
   # Test the detailed table statistics
   # (2 independent variable in addition with 1 squared term)
   # Used 8 digits here
-  # iris$Petal.Length~iris$Sepal.Width + iris$Petal.Width + iris$Petal.Width^2
+  # iris$Petal.Length~iris$Sepal.Width + iris$Petal.Width + I(iris$Petal.Width^2)
   mylm3 = linear_model(iris$Petal.Length~iris$Sepal.Width +
-                         iris$Petal.Width + iris$Petal.Width^2, detailed = T, digit = 8)
-  standardlm3 = lm(iris$Petal.Length~iris$Sepal.Width + iris$Petal.Width + iris$Petal.Width^2)
+                         iris$Petal.Width + I(iris$Petal.Width^2), detailed = T, digit = 8)
+  standardlm3 = lm(iris$Petal.Length~iris$Sepal.Width + iris$Petal.Width + I(iris$Petal.Width^2))
 
   # Coefficients table
   # Estimates row
@@ -57,8 +57,8 @@ test_that("multiplication works", {
                round(as.numeric(summary(standardlm3)[4]$coe[,2] ),8))
 
   # 95% CI
-  expect_equal(round(as.numeric(mylm3$Coefficients[,3]),8),
-               round(as.numeric(confint(standardlm3)[,1]),8))
+  expect_equal(round(as.numeric(mylm3$Coefficients[,3]),9),
+               round(as.numeric(confint(standardlm3)[,1]),9))
   expect_equal(round(as.numeric(mylm3$Coefficients[,4]),8),
                round(as.numeric(confint(standardlm3)[,2]),8))
   # t value

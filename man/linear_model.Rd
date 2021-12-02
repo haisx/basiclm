@@ -8,7 +8,8 @@ linear_model(formula, data, digit = 3, detailed = FALSE)
 }
 \arguments{
 \item{formula}{regression formula of interests; an object of class "formula"
-(or one that can be coerced to that class).}
+(or one that can be coerced to that class). The formula should only
+contain numeric variables.}
 
 \item{data}{data used for regression model; an optional data frame, list or
 environment (or object coercible by as.data.frame to a data frame)
@@ -45,14 +46,14 @@ coefficients are significant.}
 }
 }
 \description{
-linear_model function is used to fit linear models.
+linear_model function is used to fit numeric linear models.
 It can be seen as a basic version of lm() function.
 }
 \examples{
 x = c(1,2,5,7,1,4)
 y = c(3,4,7,1,8,8)
 linear_model(y~x, detailed = TRUE)
-linear_model(y~x + x^2, digit = 3, detailed = FALSE)
+linear_model(y~x + I(x^2), digit = 3, detailed = FALSE)
 linear_model(Petal.Length~Sepal.Width, data = iris, digit = 3, detailed = TRUE)
 
 }

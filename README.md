@@ -24,7 +24,7 @@ library("basiclm")
 There is only one function `linear_model()` in `basiclm` package.
 
 ## Features
-The `basiclm` package contains `linear_model()` which achieves the basic functionality of `lm()`. The function need to take the argument `formula` and optional argument `data`, `digit`, and `detailed`. Without using `detailed = TRUE`, the function will return the function call and coefficients just like what `lm()` does. If we use a `detailed = TRUE`, we will get a list of numeric key values returned, which are the same values we can see in `summary(lm())` and `confint()`.
+The `basiclm` package contains `linear_model()` which achieves the basic functionality of `lm()`. The function need to take the argument `formula` with all numeric variables and optional argument `data`, `digit`, and `detailed`. Without using `detailed = TRUE`, the function will return the function call and coefficients just like what `lm()` does. If we use a `detailed = TRUE`, we will get a list of numeric key values returned, which are the same values we can see in `summary(lm())` and `confint()`.
 
 ## Tests
 The `linear_model()` function is tested compared with `lm()` function so that we can prove that it output correct and stable results when handle the numeric data. Each output statistics are tested in the tests. You can find them at testthat directory under tests directory. The tests mainly use `iris` data as sample data and random generated data by `runif()` as other simulated data to prove the correctness of the functionality. In the Vignette, we also compared the performance and efficiency of `linear_model()` function with `lm()` function.
@@ -37,7 +37,7 @@ set.seed(222)
 x = runif(500000, 1, 10000)
 y = runif(500000, 1, 10000)
 linear_model(y~x, detailed = TRUE)
-linear_model(y~x + x^2, digit = 3, detailed = FALSE)
+linear_model(y~x + I(x^2), digit = 3, detailed = FALSE)
 ```
 
 `linear_model(iris$Petal.Length~iris$Sepal.Width)`
